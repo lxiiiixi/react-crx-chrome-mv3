@@ -1,62 +1,38 @@
 # react-crx-mv3
 
-基于Create-React-APP+Antd的Chrome Extension Manifest V3工程脚手架。
+基于 Create-React-APP+Antd 的 Chrome Extension Manifest V3 工程脚手架。
 
 本项目架构实现了以下功能：
 
-- 基于Create-React-App 5.0.0搭建
-- 基于Chrome Extension Manifest V3规范
-- 集成Sass/Scss/Less/Stylus
-- 集成Ant Design
-- 集成mock.js 模拟请求
-- 集成http-proxy-middleware 反向代理
-- 集成react-router-dom v6
-- 解决Ant Design全局样式污染问题
-- 实现Ant Design按需加载
-- 将popup、content、background目录互相独立，便于团队协作开发维护
-- 按照Chrome Extension最终生成目录要求配置webpack
-- 封装fetch，满足popup、content script、background script跨域请求
-- 设置.env.development环境变量，便于在开发环境下禁止委托background script发起请求
-- 实现了完整的Chrome Extension MV3项目Demo。
-
-## 教程
-
-📚📚本项目有详细的讲解教程。精心编排，超值干货！手把手带你体验React+Antd开发Chrome插件（Manifest V3）完整流程📚📚
-
-😃😃
-
-花20分钟时间按照教程一步一步搭建，即可全面掌握项目细节，请关注作者**微信公众号「卧梅又闻花」**，阅读完整版文章：
-
-[《2022新春版：React+Antd开发Chrome插件（Manifest V3）上篇》](https://mp.weixin.qq.com/s/5D_6dqz4qI61Ln4oOo1O3A)
-
-[《2022新春版：React+Antd开发Chrome插件（Manifest V3）下篇》](https://mp.weixin.qq.com/s/kkS9ODEDe-64BCGqr88RPw)
-
-😃😃
-
-❤️❤️文章教程是作者花费大量时间精心编排准备的，您的支持是作者写作的最大动力源泉❤️❤️
-
-## 安装
-GitHub：
-```
-git clone https://github.com/Yuezi32/react-crx-mv3.git
-```
-Gitee：
-```
-git clone https://gitee.com/betaq/react-crx-mv3.git
-```
+-   基于 Create-React-App 5.0.0 搭建
+-   基于 Chrome Extension Manifest V3 规范
+-   集成 Sass/Scss/Less/Stylus
+-   集成 Ant Design
+-   集成 mock.js 模拟请求
+-   集成 http-proxy-middleware 反向代理
+-   集成 react-router-dom v6
+-   解决 Ant Design 全局样式污染问题
+-   实现 Ant Design 按需加载
+-   将 popup、content、background 目录互相独立，便于团队协作开发维护
+-   按照 Chrome Extension 最终生成目录要求配置 webpack
+-   封装 fetch，满足 popup、content script、background script 跨域请求
+-   设置.env.development 环境变量，便于在开发环境下禁止委托 background script 发起请求
+-   实现了完整的 Chrome Extension MV3 项目 Demo。
 
 ## 开发调试
 
 执行：
+
 ```
 yarn start
 ```
 
-即可在开发环境预览调试popup页面
+即可在开发环境预览调试 popup 页面
 
-如果需要在开发环境预览调试content script，
+如果需要在开发环境预览调试 content script，
 
-请修改src/popup/index.js，引入content script：
+请修改 src/popup/index.js，引入 content script：
+
 ```
     import { HashRouter, Route, Routes, Navigate } from 'react-router-dom'
     import Login from '@/popup/pages/login'
@@ -66,19 +42,22 @@ yarn start
 M   import '@/content'
 ```
 
-## build项目
+## build 项目
 
 执行：
+
 ```
 yarn build
 ```
-即可生成最终Chrome Extension文件。
 
-## 精简最终build文件
+即可生成最终 Chrome Extension 文件。
 
-build生成的最终文件，对于插件来说，有很多是不必要的。
+## 精简最终 build 文件
+
+build 生成的最终文件，对于插件来说，有很多是不必要的。
 
 可删除以下文件：
+
 ```
     ├─ /images
     ├─ /static
