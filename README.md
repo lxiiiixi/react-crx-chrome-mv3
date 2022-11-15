@@ -10,7 +10,7 @@ react-router-dom  ——  v6.4.3
 Ant Design  ——  v4.24.2
 ```
 
-If you want to learn about the building process, available for viewing: 
+If you want to learn about the building process, available for viewing: https://github.com/lxiiiixi/react-crx-chrome-mv3/blob/main/Cra%2BChromeV3%2BAntd.md
 
 ## Usage
 
