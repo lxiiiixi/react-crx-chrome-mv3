@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'antd'
 import { apiReqs } from '@/api'
-import imgLogo from './logo.png'
-import './login.styl'
+import './login.scss'
 
 function Login() {
     // 设置路由钩子
@@ -28,13 +27,13 @@ function Login() {
             },
             fail: (res) => {
                 alert(res)
+                navigate('/home')
             },
         })
     }
 
     return (
         <div className="P-login">
-            <img src={imgLogo} alt="" className="logo" />
             <div className="ipt-con">
                 <Input placeholder="账号" value={account} onChange={(e) => { setAccount(e.target.value) }} />
             </div>

@@ -1,8 +1,7 @@
 import { apiRequest } from '@/api'
 
 /*global chrome*/
-// manifest.json的Permissions配置需添加declarativeContent权限
-
+// manifest.json的Permissions配置需添加 declarativeContent 权限
 chrome.runtime.onInstalled.addListener(function () {
     // 默认先禁止Page Action。如果不加这一句，则无法生效下面的规则
     chrome.action.disable()
@@ -14,13 +13,13 @@ chrome.runtime.onInstalled.addListener(function () {
                 new chrome.declarativeContent.PageStateMatcher({
                     pageUrl: {
                         // 适配所有域名以“www.”开头的网页
-                        hostPrefix: 'www.'
+                        // hostPrefix: 'www.'
                         // 适配所有域名以“.baidu.com”结尾的网页
                         // hostSuffix: '.baidu.com',
                         // 适配域名为“www.baidu.com”的网页
                         // hostEquals: 'www.baidu.com',
                         // 适配https协议的网页
-                        // schemes: ['https'],
+                        schemes: ['https'],
                     },
                 }),
             ],

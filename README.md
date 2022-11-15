@@ -1,78 +1,33 @@
-# react-crx-mv3
+## Introduction
 
-基于 Create-React-APP+Antd 的 Chrome Extension Manifest V3 工程脚手架。
+A chrome extension manifest V3 scaffolding project with ReactJs using inject page strategy.
 
-本项目架构实现了以下功能：
+This project demo was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
--   基于 Create-React-App 5.0.0 搭建
--   基于 Chrome Extension Manifest V3 规范
--   集成 Sass/Scss/Less/Stylus
--   集成 Ant Design
--   集成 mock.js 模拟请求
--   集成 http-proxy-middleware 反向代理
--   集成 react-router-dom v6
--   解决 Ant Design 全局样式污染问题
--   实现 Ant Design 按需加载
--   将 popup、content、background 目录互相独立，便于团队协作开发维护
--   按照 Chrome Extension 最终生成目录要求配置 webpack
--   封装 fetch，满足 popup、content script、background script 跨域请求
--   设置.env.development 环境变量，便于在开发环境下禁止委托 background script 发起请求
--   实现了完整的 Chrome Extension MV3 项目 Demo。
-
-## 开发调试
-
-执行：
-
-```
-yarn start
+```md
+node  ——  v17.4.0
+react-router-dom  ——  v6.4.3
+Ant Design  ——  v4.24.2
 ```
 
-即可在开发环境预览调试 popup 页面
+If you want to learn about the building process, available for viewing: 
 
-如果需要在开发环境预览调试 content script，
+## Usage
 
-请修改 src/popup/index.js，引入 content script：
+In the project directory, you can run:
 
-```
-    import { HashRouter, Route, Routes, Navigate } from 'react-router-dom'
-    import Login from '@/popup/pages/login'
-    import Home from '@/popup/pages/home'
-    import './popup.styl'
-    // 在popup页面调试content script，仅用于开发环境，build前记得要注释掉。
-M   import '@/content'
-```
+ `npm run start` —— Runs the app in the development mode.
 
-## build 项目
+ `npm run build` —— Builds the app for production to the `build` folder.
 
-执行：
+ `npm run watch` —— To avoid running `yarn build` after updating any file, you can run this, which listens to any local file changes, and rebuilds automatically.
 
-```
-yarn build
-```
+## Adding React app extension to Chrome
 
-即可生成最终 Chrome Extension 文件。
+In Chrome browser, go to `chrome://extensions` page and switch on developer mode. This enables the ability to locally install a Chrome extension.
 
-## 精简最终 build 文件
+<img src="https://cdn.jsdelivr.net/gh/lxiiiixi/Image-Hosting/Markdown/image-20221115162818974.png" alt="image-20221115162818974" style="zoom:50%;" />
 
-build 生成的最终文件，对于插件来说，有很多是不必要的。
+Once loaded, you can see the following two sections
 
-可删除以下文件：
-
-```
-    ├─ /images
-    ├─ /static
-    |  ├─ /css
-    |  |  ├─ content.css
-    |  |  └─ main.css
-    |  └─ /js
-    |     ├─ background.js
-    |     ├─ content.js
--   |     ├─ content.js.LICENSE.txt
-    |     ├─ main.js
--   |     └─ main.js.LICENSE.txt
--   ├─ asset-manifest.json
-    ├─ favicon.ico
-    ├─ index.html
-    ├─ insert.js
-    └─ manifest.json
-```
+<img src="https://cdn.jsdelivr.net/gh/lxiiiixi/Image-Hosting/Markdown/image-20221115163222970.png" alt="image-20221115163222970" style="zoom:50%;" />

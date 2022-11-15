@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { apiReqs } from '@/api'
 // import { Button, Input, Modal, Select } from 'antd'
+// 单独引入 避免加载Antd的全局reset样式
 import Button from 'antd/es/button'
 import Input from 'antd/es/input'
 import Modal from 'antd/es/modal'
@@ -9,16 +10,17 @@ import 'antd/es/button/style/index.css'
 import 'antd/es/input/style/index.css'
 import 'antd/es/modal/style/index.css'
 import 'antd/es/select/style/index.css'
-import './mainModal.styl'
+import './PopModal.scss'
 
 const { Option } = Select
 
-function MainModal(props) {
+function PopModal(props) {
     const [text, setText] = useState(null)
-    const [option, setOption] = useState('react')
+    const [option, setOption] = useState('')
 
     // 提交
     const submit = () => {
+        console.log(text, option);
         apiReqs.submitByBackground({
             data: {
                 text,
@@ -87,4 +89,4 @@ function MainModal(props) {
     )
 }
 
-export default MainModal
+export default PopModal

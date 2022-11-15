@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import ReactDOM from 'react-dom'
-import MainModal from './components/mainModal'
+// import ReactDOM from 'react-dom'
+import { createRoot } from "react-dom/client"
+import PopModal from './components/PopModal'
 import './antd-diy.css'
-import './content.styl'
+import './content.scss'
 
 function Content() {
     const [mainModalVisiable, setMainModalVisiable] = useState(false)
@@ -16,7 +17,7 @@ function Content() {
                 }}
             ></div>
             {mainModalVisiable ? (
-                <MainModal
+                <PopModal
                     onClose={() => {
                         setMainModalVisiable(false)
                     }}
@@ -32,4 +33,6 @@ app.id = 'CRX-container'
 // 将刚创建的div插入body最后
 document.body.appendChild(app)
 // 将ReactDOM插入刚创建的div
-ReactDOM.render(<Content />, app)
+const container = createRoot(app)
+container.render(<Content />)
+

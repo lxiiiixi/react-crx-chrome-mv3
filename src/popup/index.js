@@ -1,8 +1,8 @@
 import { HashRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Login from '@/popup/pages/login'
 import Home from '@/popup/pages/home'
-import './popup.styl'
-// 在popup页面调试content script，仅用于开发环境，build前记得要注释掉。
+import './popup.scss' // 作为popup所有页面的全局样式
+// 在popup页面调试content script，仅用于开发环境，build前记得要注释掉
 // import '@/content'
 
 function Popup() {

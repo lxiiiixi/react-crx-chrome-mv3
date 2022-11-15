@@ -1,7 +1,7 @@
 {
-  "name": "Chrome插件V3",
+  "name": "Chrome Extention V3",
   "version": "1.0",
-  "description": "React开发chrome插件V3 Demo。",
+  "description": "A Chrome Extention V3 Frame by React",
   "manifest_version": 3,
   "background": {
     "service_worker": "static/js/background.js"
