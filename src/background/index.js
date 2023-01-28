@@ -1,6 +1,35 @@
+/*global chrome*/
 import { apiRequest } from '@/api'
 
-/*global chrome*/
+var views = chrome.extension.getViews({ type: 'popup' });
+if (views.length > 0) {
+    // 相当于popup的windows对象
+    console.log(views[0].location.href);
+}
+
+
+
+// storage存储示例
+chrome.runtime.onInstalled.addListener(function () {
+    // 在插件加载时向storage中设置值
+    chrome.storage.sync.set({ color: "#3aa757" }, function () {
+        console.log("storage init color value");
+    });
+    // 为特定的网址显示图标
+    chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+        chrome.declarativeContent.onPageChanged.addRules([
+            {
+                conditions: [
+                    new chrome.declarativeContent.PageStateMatcher({
+                        pageUrl: { hostEquals: "baidu.com" },
+                    }),
+                ],
+                actions: [new chrome.declarativeContent.ShowPageAction()],
+            },
+        ]);
+    });
+});
+
 // manifest.json的Permissions配置需添加 declarativeContent 权限
 chrome.runtime.onInstalled.addListener(function () {
     // 默认先禁止Page Action。如果不加这一句，则无法生效下面的规则

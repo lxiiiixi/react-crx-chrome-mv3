@@ -1,3 +1,4 @@
+/*global chrome*/
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'antd'
@@ -31,6 +32,10 @@ function Login() {
             },
         })
     }
+
+    var bg = chrome.extension.getBackgroundPage();
+    console.log(bg);
+
 
     return (
         <div className="P-login">
